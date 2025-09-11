@@ -93,4 +93,6 @@ server <- function(input, output, session) {
   )
 }
 
+onStop(function() mirai::daemons(0))
+
 shinyApp(ui, server, options = list(port = 8080, launch.browser = TRUE))
