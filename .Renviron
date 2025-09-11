@@ -1,0 +1,6 @@
+OTEL_TRACES_EXPORTER="http"
+OTEL_EXPORTER_OTLP_ENDPOINT="https://logfire-us.pydantic.dev"
+OTEL_EXPORTER_OTLP_HEADERS="Authorization=<your-write-token>"
+OTEL_LOGS_EXPORTER="http"
+OTEL_LOG_LEVEL="debug"
+OTEL_METRICS_EXPORTER="http"
