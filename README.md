@@ -18,7 +18,7 @@ Slides: https://schloerke.com/presentation-2025-09-17-posit-conf-otel/
 
 
 
-## Otel Setup
+## Setup
 
 * An Anthropic API key; you can get one via the [Anthropic Console](https://console.anthropic.com/) (requires signup and credit card).
 
