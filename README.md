@@ -15,7 +15,11 @@ Slides: https://schloerke.com/presentation-2025-09-17-posit-conf-otel/
   * `{ellmer}`: https://ellmer.tidyverse.org/
   * `{mirai}`: https://mirai.r-lib.org/
   * `{httr2}`: https://httr2.r-lib.org/
-
+* Chat UI:
+  * `{shinychat}`: https://posit-dev.github.io/shinychat/r/
+  * `{weathR}`: https://github.com/JeffreyFowler/weathR
+  * `{gt}`: https://gt.rstudio.com/
+  * `{bsicons}`: https://rstudio.github.io/bsicons/
 
 
 ## Setup
@@ -65,14 +69,12 @@ Slides: https://schloerke.com/presentation-2025-09-17-posit-conf-otel/
 
 ## Example
 
-Small `{ellmer}` `{shinychat}` app in R with a single tool call to find the current weather.
-
-![](app.png)
-
-
 Snapshot of a [Logfire](https://pydantic.dev/logfire) dashboard of the app (whose Otel spans have been heavily pruned for demo clarity):
 
-![](logfire.png)
+
+![](demo.png)
+
+The app is a small `{ellmer}` (via R `{shiny}` / `{shinychat}`) app with a single tool call to find the current weather.
 
 
 -------------------------------
