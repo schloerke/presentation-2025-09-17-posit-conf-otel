@@ -13,7 +13,7 @@ if (FALSE) {
       ## Shiny UI
       "cran::bslib",
       ## Prettier tool calls
-      "posit-dev/shinychat/pkg-r", # "github::posit-dev/shinychat@657d822"
+      "posit-dev/shinychat/pkg-r", # "github::posit-dev/shinychat@ed03a82"
       ## Weather tool dependencies
       "cran::weathR",
       "cran::gt",
@@ -81,6 +81,7 @@ get_weather_forecast <- ellmer::tool(
 
 library(shiny)
 mirai::daemons(1)
+onStop(function() mirai::daemons(0))
 
 ui <- bslib::page_fillable(
   shinychat::chat_mod_ui("chat", height = "100%")
@@ -102,6 +103,5 @@ server <- function(input, output, session) {
   )
 }
 
-onStop(function() mirai::daemons(0))
 
 shinyApp(ui, server, options = list(port = 8080, launch.browser = TRUE))
