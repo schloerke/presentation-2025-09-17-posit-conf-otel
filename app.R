@@ -6,6 +6,7 @@ if (FALSE) {
       "cran::otel",
       "cran::otelsdk",
       ## OpenTelemetry packages
+      "rstudio/promises", # "github::rstudio/promises@870ea76"
       "rstudio/shiny#4269", # "github::rstudio/shiny@c3f414b"
       "cran::mirai", # "cran::mirai@2.5.0"
       "r-lib/httr2#729", # "github::r-lib/httr2@24292d2"
