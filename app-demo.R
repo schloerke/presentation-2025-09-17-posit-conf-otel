@@ -58,6 +58,13 @@ onStop(function() mirai::daemons(0))
 
 ui <- bslib::page_fillable(
   shinychat::chat_mod_ui("chat", height = "100%")
+  # ,
+  # shiny::actionButton(
+  #   "close_btn",
+  #   label = "",
+  #   class = "btn-close",
+  #   style = "position: fixed; top: 6px; right: 6px;"
+  # )
 )
 server <- function(input, output, session) {
   # Set up client within `server` to not _share_ the client for all sessions
@@ -69,25 +76,29 @@ server <- function(input, output, session) {
     {
       chat_server <- shinychat::chat_mod_server("chat", client, session)
 
-      # Set the UI
-      observeEvent(
-        once = TRUE,
-        TRUE, # Allow once reactivity is ready
-        {
-          # chat_server$update_user_input("What is the weather in Atlanta, GA?")
+      # shiny::observeEvent(input$close_btn, {
+      #   shiny::stopApp()
+      # })
 
-          later::later(
-            function() {
-              # withRe
-              chat_server$update_user_input(
-                "What is the weather in Atlanta, GA?",
-                submit = TRUE
-              )
-            },
-            4
-          )
-        }
-      )
+      # # Set the UI
+      # observeEvent(
+      #   once = TRUE,
+      #   TRUE, # Allow once reactivity is ready
+      #   {
+      #     # chat_server$update_user_input("What is the weather in Atlanta, GA?")
+
+      #     later::later(
+      #       function() {
+      #         # withRe
+      #         chat_server$update_user_input(
+      #           "Pick a random city in the US and get its weather forecast.",
+      #           submit = TRUE
+      #         )
+      #       },
+      #       2
+      #     )
+      #   }
+      # )
 
       observeEvent(
         {
@@ -96,17 +107,14 @@ server <- function(input, output, session) {
         {
           req(chat_server$last_turn())
           turn_txt <- ellmer::contents_text(chat_server$last_turn())
-          req(grepl("temperature", turn_txt, ignore.case = TRUE))
-          # otel::log_info(
-          #   "Conversation complete, shutting down app.",
-          #   logger = otel::get_logger("weather-app")
+          # message(turn_txt)
+          req(nchar(turn_txt) > 75)
+          # later::later(
+          #   function() {
+          #     shiny::stopApp()
+          #   },
+          #   4
           # )
-          later::later(
-            function() {
-              shiny::stopApp()
-            },
-            4
-          )
           later::later(
             function() {
               session$close()
@@ -120,4 +128,4 @@ server <- function(input, output, session) {
 }
 
 
-shinyApp(ui, server, options = list(port = 8080, launch.browser = TRUE))
+shinyApp(ui, server, options = list(port = 8080, launch.browser = FALSE))
