@@ -6,15 +6,15 @@ if (FALSE) {
       "cran::otel",
       "cran::otelsdk",
       ## OpenTelemetry packages
-      "rstudio/promises", # "github::rstudio/promises@870ea76"
-      "rstudio/shiny#4269", # "github::rstudio/shiny@c3f414b"
+      "cran::promises", # cran::promises@1.5.0
+      "rstudio/shiny", # >= 1.11.3.9000
       "cran::mirai", # "cran::mirai@2.5.0"
-      "r-lib/httr2#729", # "github::r-lib/httr2@24292d2"
-      "tidyverse/ellmer#526", # "github::tidyverse/ellmer@e59614b"
+      "r-lib/httr2#729", # "github::r-lib/httr2"
+      "tidyverse/ellmer#526", # "github::tidyverse/ellmer"
       ## Shiny UI
       "cran::bslib",
       ## Prettier tool calls
-      "posit-dev/shinychat/pkg-r", # "github::posit-dev/shinychat@ed03a82"
+      "cran::shinychat", # "github::posit-dev/shinychat"
       ## Weather tool dependencies
       "cran::weathR",
       "cran::gt",
