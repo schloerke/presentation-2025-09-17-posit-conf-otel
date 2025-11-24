@@ -80,25 +80,25 @@ server <- function(input, output, session) {
       #   shiny::stopApp()
       # })
 
-      # # Set the UI
-      # observeEvent(
-      #   once = TRUE,
-      #   TRUE, # Allow once reactivity is ready
-      #   {
-      #     # chat_server$update_user_input("What is the weather in Atlanta, GA?")
+      # Set the UI
+      observeEvent(
+        once = TRUE,
+        TRUE, # Allow once reactivity is ready
+        {
+          # chat_server$update_user_input("What is the weather in Atlanta, GA?")
 
-      #     later::later(
-      #       function() {
-      #         # withRe
-      #         chat_server$update_user_input(
-      #           "Pick a random city in the US and get its weather forecast.",
-      #           submit = TRUE
-      #         )
-      #       },
-      #       2
-      #     )
-      #   }
-      # )
+          later::later(
+            function() {
+              # withRe
+              chat_server$update_user_input(
+                "Pick a random city in the US and get its weather forecast.",
+                submit = TRUE
+              )
+            },
+            2
+          )
+        }
+      )
 
       observeEvent(
         {
