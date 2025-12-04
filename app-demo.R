@@ -72,7 +72,7 @@ server <- function(input, output, session) {
   client$register_tool(get_weather_forecast)
 
   withr::with_options(
-    list(shiny.otel.bind = "none"),
+    list(shiny.otel.collect = "none"),
     {
       chat_server <- shinychat::chat_mod_server("chat", client, session)
 
